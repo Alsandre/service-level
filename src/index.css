@@ -10,8 +10,9 @@ body {
     background-color: rgba(243, 247, 255, 1);
     margin: 0;
 }
-.round {
-    /* border-collapse: collapse; */
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+.seperate-border {
+    border-collapse: separate!important;
+}
+.shadowy {
+    box-shadow: 0 3px 4px rgba(36, 48, 100, 0.589);
 }

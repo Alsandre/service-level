@@ -2,14 +2,14 @@ import { Column } from "react-table";
 
 export type TShopData = {
   address: string;
-  amount: string,
+  amount: string;
   date: string;
   delivered: string;
   inTime: string;
   number: string;
   ordered: string;
   serviceLevel: string;
-}[]
+}[];
 
 export type TItemData = {
   address: string;
@@ -19,8 +19,7 @@ export type TItemData = {
   number: string;
   ordered: string;
   serviceLevel: string;
-}[]
-
+}[];
 
 export const itemData = [
   {
@@ -856,37 +855,30 @@ export const shopData = [
 ];
 
 export const itemColumns: Array<Column> = [
-  {
-    Header: " ",
-    columns: [
-      { Header: "Number", accessor: "number" },
-      { Header: "Item", accessor: "item" },
-      { Header: "Ordered", accessor: "ordered" },
-      { Header: "Delivered", accessor: "delivered" },
-      { Header: "In time", accessor: "inTime" },
-      { Header: "Service Level", accessor: "serviceLevel" },
-    ],
-  },
+  { Header: "Number", accessor: "number" },
+  { Header: "Item", accessor: "item" },
+  { Header: "Ordered", accessor: "ordered" },
+  { Header: "Delivered", accessor: "delivered" },
+  { Header: "In time", accessor: "inTime" },
+  { Header: "Service Level", accessor: "serviceLevel" },
 ];
 
 export const shopColumns: Array<Column> = [
-  {
-    Header: " ",
-    columns: [
-      { Header: "Number", accessor: "number" },
-      { Header: "Date", accessor: "date" },
-      { Header: "Amount", accessor: "amount" },
-      { Header: "Ordered", accessor: "ordered" },
-      { Header: "Delivered", accessor: "delivered" },
-      { Header: "In time", accessor: "inTime" },
-      { Header: "Service Level", accessor: "serviceLevel" },
-    ],
-  },
+  { Header: "Number", accessor: "number" },
+  { Header: "Date", accessor: "date" },
+  { Header: "Amount", accessor: "amount" },
+  { Header: "Ordered", accessor: "ordered" },
+  { Header: "Delivered", accessor: "delivered" },
+  { Header: "In time", accessor: "inTime" },
+  { Header: "Service Level", accessor: "serviceLevel" },
 ];
 
-export const shopAddresses: string[] = findUniqueShopAddresses(shopData)
+export const shopAddresses: string[] = findUniqueShopAddresses(shopData);
 
-function findUniqueShopAddresses (data: TShopData): string[] {
-  const setOfAddresses: Set<string> = new Set([...data.map(dataObj => dataObj.address), 'Vazha-Pshavela 7']);
-  return [...setOfAddresses]
+function findUniqueShopAddresses(data: TShopData): string[] {
+  const setOfAddresses: Set<string> = new Set([
+    ...data.map((dataObj) => dataObj.address),
+    "Vazha-Pshavela 7",
+  ]);
+  return [...setOfAddresses];
 }
