@@ -1,18 +1,29 @@
+// @ts-nocheck
 import React, { useState } from "react";
 
-import { shopAddresses } from "../../tableData";
+import { defaultColumn, useFilters, useGlobalFilter, usePagination, useTable } from "react-table";
+import { itemColumns, itemData, shopAddresses, shopColumns, shopData } from "../../tableData";
+import GlobalSearch from "./GlobalSearch";
 
-import ReportTable from "./ReportTable";
-import TablePagination from "./TablePagination";
+
 import AverageSLA from "./AverageSLA";
 import ReportTypeOptions from "./ReportTypeOptions";
 import ShopAddress from "./ShopAddress";
 import ActionOptions from "./ActionOptions";
 import SearchBar from "./SearchBar";
-import GlobalSearch from "./GlobalSearch";
+import Table from "./Table";
 
 export default function Main(): JSX.Element {
   const [reportType, setReportType] = useState("shop");
+  let columns = reportType === 'item' ? itemColumns :  shopColumns;
+  let data = reportType === 'item' ? itemData : shopData;
+
+  const reactTable = useTable(
+    { columns, data, defaultColumn, initialState: { pageSize: 7 } },
+    useFilters,
+    useGlobalFilter,
+    usePagination
+  );
 
   function onReportTypeChange(type: string): void {
     setReportType(type);
@@ -25,8 +36,11 @@ export default function Main(): JSX.Element {
         <h1>SPAR Service Level Report</h1>
         <div className={"flex"}>
           <ActionOptions />
-          {/* <GlobalSearch /> */}
-          <SearchBar />
+          <GlobalSearch
+                preGlobalFilteredRows={reactTable.preGlobalFilteredRows}
+                globalFilter={reactTable.state.globalFilter}
+                setGlobalFilter={reactTable.setGlobalFilter}
+              />
         </div>
         <div className="absolute right-[90px] bottom-[-60px]">
           <ReportTypeOptions reportTypeHandler={onReportTypeChange} />
@@ -53,8 +67,7 @@ export default function Main(): JSX.Element {
       )}
 
       <section className={"mt-12 pr-[90px]"}>
-        <ReportTable variant={reportType} />
-        <TablePagination />
+        <Table {...reactTable} />
       </section>
     </main>
   );

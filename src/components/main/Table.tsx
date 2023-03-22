@@ -1,23 +1,7 @@
 //@ts-nocheck
 import { v4 as keyGen } from "uuid";
-import {
-  useTable,
-  usePagination,
-  Column,
-  useFilters,
-  useGlobalFilter,
-} from "react-table";
-import { TItemData, TShopData } from "../../tableData";
-import { defaultColumn } from "./ColumnFilter";
-import GlobalSearch from "./GlobalSearch";
 
-type TData = TShopData | TItemData;
-
-export default function Table(props: {
-  columns: Array<Column>;
-  data: TData;
-}): JSX.Element {
-  const { columns, data } = props;
+export default function Table(props): JSX.Element {
   const {
     getTableProps,
     getTableBodyProps,
@@ -25,22 +9,15 @@ export default function Table(props: {
     prepareRow,
     pageOptions,
     page,
-    state: { pageIndex, pageSize,  globalFilter},
+    state,
     gotoPage,
     previousPage,
     nextPage,
     setPageSize,
     canPreviousPage,
     canNextPage,
-    visibleColumns,
-    preGlobalFilteredRows,
-    setGlobalFilter,
-  } = useTable(
-    { columns, data, defaultColumn, initialState: { pageSize: 7 } },
-    useFilters,
-    useGlobalFilter,
-    usePagination
-  );
+    visibleColumns
+  } = props;
 
   return (
     <div>
@@ -51,7 +28,6 @@ export default function Table(props: {
               {headerGroup.headers.map((column) => (
                 <th key={keyGen()} {...column.getHeaderProps()}>
                   {column.render("Header")}
-                  <div>{column.canFilter ? column.render("Filter") : null}</div>
                 </th>
               ))}
             </tr>
@@ -63,11 +39,7 @@ export default function Table(props: {
                 textAlign: "left",
               }}
             >
-              <GlobalSearch
-                preGlobalFilteredRows={preGlobalFilteredRows}
-                globalFilter={globalFilter}
-                setGlobalFilter={setGlobalFilter}
-              />
+              
             </th>
           </tr>
         </thead>
@@ -98,30 +70,24 @@ export default function Table(props: {
         <div>
           Page{" "}
           <em>
-            {pageIndex + 1} of {pageOptions.length}
+            {state.pageIndex + 1} of {pageOptions.length}
           </em>
         </div>
         <div>Go to page:</div>
         <input
           type="number"
-          defaultValue={pageIndex + 1 || 1}
+          defaultValue={state.pageIndex + 1 || 1}
           onChange={(e) => {
             const page = e.target.value ? Number(e.target.value) - 1 : 0;
             gotoPage(page);
           }}
         />
         <select
-          value={pageSize}
+          value={state.pageSize}
           onChange={(e) => {
             setPageSize(Number(e.target.value));
           }}
-        >
-          {/* {pageSizeOptions.map(pageSize => (
-           <option key={pageSize} value={pageSize}>
-             Show {pageSize}
-           </option>
-         ))} */}
-        </select>
+        ></select>
       </div>
     </div>
   );
