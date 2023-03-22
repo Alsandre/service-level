@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: rgba(243, 247, 255, 1);
+}
+.round {
+    /* border-collapse: collapse; */
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
