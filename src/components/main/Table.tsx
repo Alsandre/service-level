@@ -20,13 +20,17 @@ export default function Table(props): JSX.Element {
   } = props;
 
   return (
-    <div  >
-      <table {...getTableProps()} className="w-full mn-w-[700px] bg-white">
-        <thead className='h-9'>
+    <div>
+      <table {...getTableProps()} className="w-full min-w-[700px]">
+        <thead className="h-9">
           {headerGroups.map((headerGroup) => (
-            <tr key={keyGen()} {...headerGroup.getHeaderGroupProps()} className=''>
+            <tr key={keyGen()} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
-                <th key={keyGen()} {...column.getHeaderProps()} className='first:rounded-l-lg last:rounded-r-lg' >
+                <th
+                  key={keyGen()}
+                  {...column.getHeaderProps()}
+                  className="first:rounded-l-lg last:rounded-r-lg"
+                >
                   {column.render("Header")}
                 </th>
               ))}
@@ -37,10 +41,18 @@ export default function Table(props): JSX.Element {
           {page.map((row) => {
             prepareRow(row);
             return (
-              <tr key={keyGen()} {...row.getRowProps()}>
+              <tr
+                key={keyGen()}
+                {...row.getRowProps()}
+                className="rounded-xl bg-white h-9 shadow-md border-b-2 hover:bg-rowSelect"
+              >
                 {row.cells.map((cell) => {
                   return (
-                    <td key={keyGen()} {...cell.getCellProps()}>
+                    <td
+                      key={keyGen()}
+                      {...cell.getCellProps()}
+                      className="first:rounded-l-xl last:rounded-r-xl"
+                    >
                       {cell.render("Cell")}
                     </td>
                   );
@@ -50,34 +62,22 @@ export default function Table(props): JSX.Element {
           })}
         </tbody>
       </table>
-      <div>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          Previous Page
-        </button>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          Next Page
-        </button>
-        <div>
-          Page{" "}
-          <em>
-            {state.pageIndex + 1} of {pageOptions.length}
-          </em>
-        </div>
-        <div>Go to page:</div>
-        <input
-          type="number"
-          defaultValue={state.pageIndex + 1 || 1}
-          onChange={(e) => {
-            const page = e.target.value ? Number(e.target.value) - 1 : 0;
-            gotoPage(page);
-          }}
-        />
-        <select
-          value={state.pageSize}
-          onChange={(e) => {
-            setPageSize(Number(e.target.value));
-          }}
-        ></select>
+      <div className="flex justify-center gap-3 m-auto mt-12 min-w-[700px]">
+        {canPreviousPage && <button onClick={previousPage}>&lt;&lt;</button>}
+        {pageOptions.map((page) => {
+          return (
+            <button
+              key={keyGen()}
+              className='font-bold'
+              onClick={(e) => {
+                gotoPage(page);
+              }}
+            >
+              {page + 1}
+            </button>
+          );
+        })}
+        {canNextPage && <button onClick={nextPage}>&gt;&gt;</button>}
       </div>
     </div>
   );

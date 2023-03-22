@@ -10,7 +10,6 @@ import AverageSLA from "./AverageSLA";
 import ReportTypeOptions from "./ReportTypeOptions";
 import ShopAddress from "./ShopAddress";
 import ActionOptions from "./ActionOptions";
-import SearchBar from "./SearchBar";
 import Table from "./Table";
 
 export default function Main(): JSX.Element {
@@ -33,7 +32,7 @@ export default function Main(): JSX.Element {
       <section
         className={"flex justify-between pt-6 pr-10 min-w-[700px] relative"}
       >
-        <h1 className="pl-4 text-lg font-bold text-marlin font-sans">SPAR Service Level Report</h1>
+        <h1 className="pl-4 text-lg font-bold font-sans">SPAR Service Level Report</h1>
         <div className={"flex"}>
           <ActionOptions />
           <GlobalSearch
@@ -49,7 +48,7 @@ export default function Main(): JSX.Element {
       {reportType === "shop" && (
         <>
           <section
-            className={"flex justify-between mt-7 pr-[90px] w-[85%] min-w-[600px]"}
+            className={"flex justify-between mt-7 mr-[90px] w-[42%] min-w-[390px]"}
           >
             <ShopAddress addresses={shopAddresses} />
             <AverageSLA />

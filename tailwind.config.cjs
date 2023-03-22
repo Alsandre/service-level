@@ -8,7 +8,9 @@ module.exports = {
     extend: {
       colors: {
         'marlin': 'rgba(33, 21, 67, 1)',
-        'main': 'rgba(243, 247, 255, 1)'
+        'main': 'rgba(243, 247, 255, 1)',
+        'rowSelect': 'rgba(121, 73, 243, 1)',
+        'cyan': 'rgba(71, 220, 201, 1)',
       }
     },
   },
