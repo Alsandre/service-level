@@ -16,32 +16,22 @@ export default function Table(props): JSX.Element {
     setPageSize,
     canPreviousPage,
     canNextPage,
-    visibleColumns
+    visibleColumns,
   } = props;
 
   return (
-    <div>
-      <table {...getTableProps()}>
-        <thead>
+    <div  >
+      <table {...getTableProps()} className="w-full mn-w-[700px] bg-white">
+        <thead className='h-9'>
           {headerGroups.map((headerGroup) => (
-            <tr key={keyGen()} {...headerGroup.getHeaderGroupProps()}>
+            <tr key={keyGen()} {...headerGroup.getHeaderGroupProps()} className=''>
               {headerGroup.headers.map((column) => (
-                <th key={keyGen()} {...column.getHeaderProps()}>
+                <th key={keyGen()} {...column.getHeaderProps()} className='first:rounded-l-lg last:rounded-r-lg' >
                   {column.render("Header")}
                 </th>
               ))}
             </tr>
           ))}
-          <tr>
-            <th
-              colSpan={visibleColumns.length}
-              style={{
-                textAlign: "left",
-              }}
-            >
-              
-            </th>
-          </tr>
         </thead>
         <tbody {...getTableBodyProps()}>
           {page.map((row) => {

@@ -2,8 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+    color: rgba(33, 21, 67, 1);
+}
 body {
     background-color: rgba(243, 247, 255, 1);
+    margin: 0;
 }
 .round {
     /* border-collapse: collapse; */

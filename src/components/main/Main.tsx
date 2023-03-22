@@ -33,7 +33,7 @@ export default function Main(): JSX.Element {
       <section
         className={"flex justify-between pt-6 pr-10 min-w-[700px] relative"}
       >
-        <h1>SPAR Service Level Report</h1>
+        <h1 className="pl-4 text-lg font-bold text-marlin font-sans">SPAR Service Level Report</h1>
         <div className={"flex"}>
           <ActionOptions />
           <GlobalSearch
