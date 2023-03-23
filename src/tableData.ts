@@ -873,12 +873,3 @@ export const shopColumns: Array<Column> = [
   { Header: "Service Level", accessor: "serviceLevel" },
 ];
 
-export const shopAddresses: string[] = findUniqueShopAddresses(shopData);
-
-function findUniqueShopAddresses(data: TShopData): string[] {
-  const setOfAddresses: Set<string> = new Set([
-    ...data.map((dataObj) => dataObj.address),
-    "Vazha-Pshavela 7",
-  ]);
-  return [...setOfAddresses];
-}

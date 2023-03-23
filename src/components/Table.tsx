@@ -1,21 +1,20 @@
 //@ts-nocheck
 import { v4 as keyGen } from "uuid";
 
-export default function Table(props): JSX.Element {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    prepareRow,
-    pageOptions,
-    page,
-    gotoPage,
-    previousPage,
-    nextPage,
-    canPreviousPage,
-    canNextPage,
-  } = props;
-
+export  function Table({
+  getTableProps,
+  getTableBodyProps,
+  headerGroups,
+  prepareRow,
+  pageOptions,
+  page,
+  gotoPage,
+  previousPage,
+  nextPage,
+  canPreviousPage,
+  canNextPage,
+}): JSX.Element {
+  
   return (
     <div>
       <table {...getTableProps()} className="w-full min-w-[700px] seperate-border border-spacing-y-[2px]">
@@ -29,7 +28,7 @@ export default function Table(props): JSX.Element {
               {headerGroup.headers.map((column) => (
                 <th
                   key={keyGen()}
-                  {...column.getHeaderProps()}
+                  {...column.getHeaderProps(column.getSortByToggleProps)}
                   className="first:rounded-l-xl last:rounded-r-xl"
                 >
                   {column.render("Header")}
