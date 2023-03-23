@@ -1,4 +1,5 @@
 //@ts-nocheck
+import { useEffect } from "react";
 import { v4 as keyGen } from "uuid";
 
 export function Table({
@@ -14,7 +15,13 @@ export function Table({
   canPreviousPage,
   canNextPage,
   isSortEnabled,
+  toggleHideColumn,
+  reportType
 }: any): JSX.Element {
+  useEffect(() => {
+      toggleHideColumn("productCategory", true);
+      toggleHideColumn("address", true);
+  }, [reportType, toggleHideColumn]);
   return (
     <div>
       <table

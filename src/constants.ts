@@ -1,4 +1,3 @@
-
 export type TShopData = {
   address: string;
   amount: string;
@@ -38,7 +37,16 @@ export const shopTableColumns = [
   { Header: "Delivered", accessor: "delivered" },
   { Header: "In time", accessor: "inTime" },
   { Header: "Service Level", accessor: "serviceLevel" },
-  { Header: "Adrress", accessor: "address" },
+  { Header: "Adrress", accessor: "address", id: "address" },
 ];
 
-export const sliderContent = ['Sweets', 'Beverages', 'Snacks', 'Frozen Goods', 'Baked Goods', 'Cigarettes', 'Ready Meals', 'Dairy'];
+export const sliderContent = [
+  "Sweets",
+  "Beverages",
+  "Snacks",
+  "Frozen Goods",
+  "Baked Goods",
+  "Cigarettes",
+  "Ready Meals",
+  "Dairy",
+];

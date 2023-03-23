@@ -14,14 +14,14 @@ import {
 } from "react-table";
 
 export default function Dashboard(): JSX.Element {
-  const [reportType, setReportType] = useState("shop");
+  const [reportType, setReportType] = useState("item");
   const [isSortEnabled, setIsSortEnabled] = useState(false);
   let columns = reportType === "item" ? itemTableColumns : shopTableColumns;
   let data = reportType === "item" ? itemsData : shopsData;
 
   const reactTableProps = useTable(
     //@ts-ignore
-    { columns, data, defaultColumn, initialState: { pageSize: 7 } },
+    { columns, data, defaultColumn, initialState: {columnVisibility: { productCategory: false }, pageSize: 7 } },
     useFilters,
     useGlobalFilter,
     useSortBy,
@@ -51,7 +51,7 @@ export default function Dashboard(): JSX.Element {
         />
 
         <section className={"pr-[90px]"}>
-          <Table {...reactTableProps} isSortEnabled={isSortEnabled}/>
+          <Table {...reactTableProps} isSortEnabled={isSortEnabled} reportType={reportType}/>
         </section>
       </main>
     </>
