@@ -41,3 +41,4 @@ export const shopTableColumns = [
   { Header: "Adrress", accessor: "address" },
 ];
 
+export const sliderContent = ['Sweets', 'Beverages', 'Snacks', 'Frozen Goods', 'Baked Goods', 'Cigarettes', 'Ready Meals', 'Dairy'];

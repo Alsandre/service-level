@@ -4,6 +4,7 @@ import shopsData from "../data/shopsData.json";
 import { TShopsTable } from "../types";
 import Icon from "./Icon";
 import { useAsyncDebounce } from "../util/useAsyncDebounce";
+import { Slider } from "./Slider";
 
 const shopAddresses: string[] = findUniqueShopAddresses(
   shopsData as TShopsTable
@@ -24,7 +25,7 @@ export function TableActions({
   return (
     <>
       <div className="flex justify-between items-center min-w-[750px] mr-10">
-        <h1 className="pl-4 mt-5 text-lg font-bold font-sans">
+        <h1 className="pl-4 mt-5 text-2xl font-bold font-sans">
           SPAR Service Level Report
         </h1>
         <div className={"flex items-center w-[370px] justify-between"}>
@@ -49,7 +50,7 @@ export function TableActions({
       </div>
 
       <div className="flex justify-between mr-[88px] pl-4 mt-4 min-w-[690px]">
-        <div className={"flex gap-6 items-center"}>
+        {/* <div className={"flex gap-6 items-center"}>
           <span className="font-bold">Shop</span>
           <select
             className={"w-40 h-8 rounded-xl shadow-md"}
@@ -66,7 +67,8 @@ export function TableActions({
             <span>Average SLA: </span>
             <span>--%</span>
           </div>
-        </div>
+        </div> */}
+        <Slider />
 
         <div>
           <div>
