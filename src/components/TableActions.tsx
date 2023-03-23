@@ -10,15 +10,14 @@ const shopAddresses: string[] = findUniqueShopAddresses(
   shopsData as TShopsTable
 );
 
-export function TableActions({
+export const TableActions: any = React.memo(function ta({
   onReportTypeChange,
   globalFilter,
   setGlobalFilter,
   setSort,
   isSortEnabled,
 }: any): JSX.Element {
-  const [globalSearchValue, setGlobalSearchValue] =
-    React.useState(globalFilter);
+  const [globalSearchValue, setGlobalSearchValue] = useState(globalFilter);
   const globalSearchHandler = useAsyncDebounce((value: any) => {
     setGlobalFilter(value || undefined);
   }, 200);
@@ -55,24 +54,27 @@ export function TableActions({
       </div>
 
       <div className="flex justify-between mr-[88px] pl-4 mt-4 pt min-w-[690px] h-32 items-start">
-        {!activeTypeIsItem &&  <div className={"flex gap-6 items-center"}>
-          <span className="font-bold">Shop</span>
-          <select
-            className={"w-40 h-8 rounded-xl shadow-md"}
-            name="shop-address"
-            id="select-shop"
-          >
-            {shopAddresses.map((address) => (
-              <option key={keyGen()} value="N.Ramishvili 33">
-                {address}
-              </option>
-            ))}
-          </select>
-          <div>
-            <span>Average SLA: </span>
-            <span>--%</span>
+        {!activeTypeIsItem && (
+          <div className={"flex gap-6 items-center"}>
+            <span className="font-bold">Shop</span>
+            <select
+              className={"w-40 h-8 rounded-xl shadow-md"}
+              name="shop-address"
+              id="select-shop"
+              onChange={(e) => {
+                setGlobalFilter(e.target.value);
+              }}
+            >
+              {shopAddresses.map((address) => (
+                <option key={keyGen()}>{address}</option>
+              ))}
+            </select>
+            <div>
+              <span>Average SLA: </span>
+              <span>--%</span>
+            </div>
           </div>
-        </div> }
+        )}
         {activeTypeIsItem && <Slider />}
 
         <div>
@@ -104,7 +106,7 @@ export function TableActions({
       </div>
     </>
   );
-}
+});
 
 function findUniqueShopAddresses(data: TShopsTable): string[] {
   const setOfAddresses: Set<string> = new Set([

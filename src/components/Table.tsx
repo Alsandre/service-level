@@ -16,11 +16,11 @@ export function Table({
   canNextPage,
   isSortEnabled,
   toggleHideColumn,
-  reportType
+  reportType,
 }: any): JSX.Element {
   useEffect(() => {
-      toggleHideColumn("productCategory", true);
-      toggleHideColumn("address", true);
+    toggleHideColumn("productCategory", true);
+    toggleHideColumn("address", true);
   }, [reportType, toggleHideColumn]);
   return (
     <div>
