@@ -50,7 +50,7 @@ export default function Dashboard(): JSX.Element {
           setSort={toggleSort}
         />
 
-        <section className={"mt-12 pr-[90px]"}>
+        <section className={"pr-[90px]"}>
           <Table {...reactTableProps} isSortEnabled={isSortEnabled}/>
         </section>
       </main>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { v4 as keyGen } from "uuid";
 import shopsData from "../data/shopsData.json";
 import { TShopsTable } from "../types";
@@ -15,13 +15,14 @@ export function TableActions({
   globalFilter,
   setGlobalFilter,
   setSort,
-  isSortEnabled
+  isSortEnabled,
 }: any): JSX.Element {
   const [globalSearchValue, setGlobalSearchValue] =
     React.useState(globalFilter);
   const globalSearchHandler = useAsyncDebounce((value: any) => {
     setGlobalFilter(value || undefined);
   }, 200);
+  const [activeTypeIsItem, setActiveTypeIsItem] = useState(true);
   return (
     <>
       <div className="flex justify-between items-center min-w-[750px] mr-10">
@@ -30,7 +31,11 @@ export function TableActions({
         </h1>
         <div className={"flex items-center w-[370px] justify-between"}>
           <Icon icon="filter-symbol" className={"opacity-50"} />
-          <Icon icon="sort" className={isSortEnabled ? 'active:opacity-100' : 'opacity-50'} onClick={setSort} />
+          <Icon
+            icon="sort"
+            className={isSortEnabled ? "active:opacity-100" : "opacity-50"}
+            onClick={setSort}
+          />
           <span>
             <img
               className={"w-6 h-6 opacity-50"}
@@ -49,8 +54,8 @@ export function TableActions({
         </div>
       </div>
 
-      <div className="flex justify-between mr-[88px] pl-4 mt-4 min-w-[690px]">
-        {/* <div className={"flex gap-6 items-center"}>
+      <div className="flex justify-between mr-[88px] pl-4 mt-4 pt min-w-[690px] h-32 items-start">
+        {!activeTypeIsItem &&  <div className={"flex gap-6 items-center"}>
           <span className="font-bold">Shop</span>
           <select
             className={"w-40 h-8 rounded-xl shadow-md"}
@@ -67,15 +72,19 @@ export function TableActions({
             <span>Average SLA: </span>
             <span>--%</span>
           </div>
-        </div> */}
-        <Slider />
+        </div> }
+        {activeTypeIsItem && <Slider />}
 
         <div>
           <div>
             <input
               type="radio"
               name="report-type"
-              onChange={() => onReportTypeChange("item")}
+              onChange={() => {
+                setActiveTypeIsItem(true);
+                onReportTypeChange("item");
+              }}
+              checked={activeTypeIsItem}
             />
             <label htmlFor="by-item">By item</label>
           </div>
@@ -83,7 +92,11 @@ export function TableActions({
             <input
               type="radio"
               name="report-type"
-              onChange={() => onReportTypeChange("shop")}
+              checked={!activeTypeIsItem}
+              onChange={() => {
+                setActiveTypeIsItem(false);
+                onReportTypeChange("shop");
+              }}
             />
             <label htmlFor="by-shop">By shop</label>
           </div>
