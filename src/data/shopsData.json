@@ -1,0 +1,352 @@
+[
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 589 ",
+      "date": "7/2/2023",
+      "delivered": "20",
+      "inTime": "No",
+      "number": "1245",
+      "ordered": "24",
+      "serviceLevel": "83%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 210 ",
+      "date": "7/2/2023",
+      "delivered": "37",
+      "inTime": "Yes",
+      "number": "9411",
+      "ordered": "15",
+      "serviceLevel": "0%"
+    },
+    {
+      "address": "Angisa, 170",
+      "amount": "GEL 83 ",
+      "date": "7/2/2023",
+      "delivered": "2",
+      "inTime": "Yes",
+      "number": "9856",
+      "ordered": "32",
+      "serviceLevel": "6%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 123 ",
+      "date": "7/2/2023",
+      "delivered": "7",
+      "inTime": "Yes",
+      "number": "1533",
+      "ordered": "8",
+      "serviceLevel": "88%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 168 ",
+      "date": "7/2/2023",
+      "delivered": "24",
+      "inTime": "Yes",
+      "number": "6000",
+      "ordered": "24",
+      "serviceLevel": "100%"
+    },
+    {
+      "address": "Angisa, 170",
+      "amount": "GEL 105 ",
+      "date": "7/2/2023",
+      "delivered": "39",
+      "inTime": "No",
+      "number": "8387",
+      "ordered": "25",
+      "serviceLevel": "44%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 86 ",
+      "date": "7/2/2023",
+      "delivered": "27",
+      "inTime": "Yes",
+      "number": "542",
+      "ordered": "15",
+      "serviceLevel": "80%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "1345",
+      "date": "7/2/2023",
+      "delivered": "45",
+      "inTime": "No",
+      "number": "1234",
+      "ordered": "56",
+      "serviceLevel": "80%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 79 ",
+      "date": "6/2/2023",
+      "delivered": "8",
+      "inTime": "Yes",
+      "number": "1454",
+      "ordered": "5",
+      "serviceLevel": "40%"
+    },
+    {
+      "address": "A.Tsereteli 117",
+      "amount": "GEL 188 ",
+      "date": "6/2/2023",
+      "delivered": "31",
+      "inTime": "Yes",
+      "number": "8792",
+      "ordered": "14",
+      "serviceLevel": "0%"
+    },
+    {
+      "address": "Angisa, 170",
+      "amount": "GEL 91 ",
+      "date": "6/2/2023",
+      "delivered": "0",
+      "inTime": "Yes",
+      "number": "6336",
+      "ordered": "16",
+      "serviceLevel": "0%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 265 ",
+      "date": "6/2/2023",
+      "delivered": "14",
+      "inTime": "No",
+      "number": "5432",
+      "ordered": "12",
+      "serviceLevel": "83%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 201 ",
+      "date": "6/2/2023",
+      "delivered": "30",
+      "inTime": "Yes",
+      "number": "2979",
+      "ordered": "34",
+      "serviceLevel": "88%"
+    },
+    {
+      "address": "Angisa, 170",
+      "amount": "GEL 170 ",
+      "date": "6/2/2023",
+      "delivered": "13",
+      "inTime": "No",
+      "number": "8133",
+      "ordered": "22",
+      "serviceLevel": "59%"
+    },
+    {
+      "address": "A.Tsereteli 117",
+      "amount": "GEL 179 ",
+      "date": "5/2/2023",
+      "delivered": "17",
+      "inTime": "No",
+      "number": "6599",
+      "ordered": "18",
+      "serviceLevel": "94%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 126 ",
+      "date": "5/2/2023",
+      "delivered": "32",
+      "inTime": "No",
+      "number": "2986",
+      "ordered": "26",
+      "serviceLevel": "77%"
+    },
+    {
+      "address": "A.Tsereteli 117",
+      "amount": "GEL 161 ",
+      "date": "5/2/2023",
+      "delivered": "20",
+      "inTime": "Yes",
+      "number": "7374",
+      "ordered": "24",
+      "serviceLevel": "83%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 144 ",
+      "date": "5/2/2023",
+      "delivered": "9",
+      "inTime": "Yes",
+      "number": "6543",
+      "ordered": "9",
+      "serviceLevel": "100%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 60 ",
+      "date": "5/2/2023",
+      "delivered": "20",
+      "inTime": "Yes",
+      "number": "8006",
+      "ordered": "30",
+      "serviceLevel": "67%"
+    },
+    {
+      "address": "Angisa, 170",
+      "amount": "GEL 209 ",
+      "date": "5/2/2023",
+      "delivered": "0",
+      "inTime": "Yes",
+      "number": "4638",
+      "ordered": "34",
+      "serviceLevel": "0%"
+    },
+    {
+      "address": "A.Tsereteli 117",
+      "amount": "GEL 171 ",
+      "date": "5/2/2023",
+      "delivered": "9",
+      "inTime": "Yes",
+      "number": "7665",
+      "ordered": "26",
+      "serviceLevel": "35%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 59 ",
+      "date": "5/2/2023",
+      "delivered": "35",
+      "inTime": "Yes",
+      "number": "3664",
+      "ordered": "24",
+      "serviceLevel": "54%"
+    },
+    {
+      "address": "A.Tsereteli 117",
+      "amount": "GEL 120 ",
+      "date": "5/2/2023",
+      "delivered": "6",
+      "inTime": "No",
+      "number": "5673",
+      "ordered": "21",
+      "serviceLevel": "29%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 9,234 ",
+      "date": "5/2/2023",
+      "delivered": "122",
+      "inTime": "Yes",
+      "number": "9754",
+      "ordered": "125",
+      "serviceLevel": "98%"
+    },
+    {
+      "address": "A.Tsereteli 117",
+      "amount": "GEL 57 ",
+      "date": "4/2/2023",
+      "delivered": "3",
+      "inTime": "No",
+      "number": "5203",
+      "ordered": "18",
+      "serviceLevel": "17%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 177 ",
+      "date": "4/2/2023",
+      "delivered": "21",
+      "inTime": "Yes",
+      "number": "1831",
+      "ordered": "24",
+      "serviceLevel": "88%"
+    },
+    {
+      "address": "A.Politkovskaia 20",
+      "amount": "GEL 187 ",
+      "date": "4/2/2023",
+      "delivered": "22",
+      "inTime": "No",
+      "number": "4812",
+      "ordered": "31",
+      "serviceLevel": "71%"
+    },
+    {
+      "address": "I.Chavchavadze 25",
+      "amount": "GEL 148 ",
+      "date": "4/2/2023",
+      "delivered": "16",
+      "inTime": "Yes",
+      "number": "1245",
+      "ordered": "16",
+      "serviceLevel": "100%"
+    },
+    {
+      "address": "A.Tsereteli 65",
+      "amount": "GEL 113 ",
+      "date": "4/2/2023",
+      "delivered": "3",
+      "inTime": "No",
+      "number": "6505",
+      "ordered": "23",
+      "serviceLevel": "13%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 91 ",
+      "date": "4/2/2023",
+      "delivered": "31",
+      "inTime": "Yes",
+      "number": "3499",
+      "ordered": "21",
+      "serviceLevel": "52%"
+    },
+    {
+      "address": "A.Tsereteli 65",
+      "amount": "GEL 203 ",
+      "date": "4/2/2023",
+      "delivered": "39",
+      "inTime": "Yes",
+      "number": "3364",
+      "ordered": "34",
+      "serviceLevel": "85%"
+    },
+    {
+      "address": "I.Chavchavadze 25",
+      "amount": "GEL 184 ",
+      "date": "4/2/2023",
+      "delivered": "17",
+      "inTime": "Yes",
+      "number": "724",
+      "ordered": "20",
+      "serviceLevel": "85%"
+    },
+    {
+      "address": "A.Tsereteli 65",
+      "amount": "GEL 190 ",
+      "date": "4/2/2023",
+      "delivered": "1",
+      "inTime": "Yes",
+      "number": "9608",
+      "ordered": "27",
+      "serviceLevel": "4%"
+    },
+    {
+      "address": "N.Ramishvili 33",
+      "amount": "GEL 142 ",
+      "date": "4/2/2023",
+      "delivered": "37",
+      "inTime": "No",
+      "number": "1140",
+      "ordered": "23",
+      "serviceLevel": "39%"
+    },
+    {
+      "address": "I.Chavchavadze 25",
+      "amount": "GEL 231 ",
+      "date": "4/2/2023",
+      "delivered": "35",
+      "inTime": "No",
+      "number": "2113",
+      "ordered": "27",
+      "serviceLevel": "70%"
+    }
+  ]

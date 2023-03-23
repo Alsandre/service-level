@@ -1,4 +1,3 @@
-
 import Dashboard from "./screens";
 
 function App() {

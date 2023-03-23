@@ -1,20 +1,24 @@
-//@ts-nocheck
 import React from "react";
 import { v4 as keyGen } from "uuid";
-import { shopData, TShopData } from "../tableData";
-import IconButton from "../UI/IconButton";
+import shopsData from "../data/shopsData.json";
+import { TShopsTable } from "../types";
+import Icon from "./Icon";
 import { useAsyncDebounce } from "../util/useAsyncDebounce";
 
-const shopAddresses: string[] = findUniqueShopAddresses(shopData);
+const shopAddresses: string[] = findUniqueShopAddresses(
+  shopsData as TShopsTable
+);
 
 export function TableActions({
   onReportTypeChange,
   globalFilter,
   setGlobalFilter,
-}): JSX.Element {
+  setSort,
+  isSortEnabled
+}: any): JSX.Element {
   const [globalSearchValue, setGlobalSearchValue] =
     React.useState(globalFilter);
-  const globalSearchHandler = useAsyncDebounce((value) => {
+  const globalSearchHandler = useAsyncDebounce((value: any) => {
     setGlobalFilter(value || undefined);
   }, 200);
   return (
@@ -24,8 +28,8 @@ export function TableActions({
           SPAR Service Level Report
         </h1>
         <div className={"flex items-center w-[370px] justify-between"}>
-          <IconButton icon="filter-symbol" className={"opacity-50"} />
-          <IconButton icon="sort" className={"opacity-50"} />
+          <Icon icon="filter-symbol" className={"opacity-50"} />
+          <Icon icon="sort" className={isSortEnabled ? 'active:opacity-100' : 'opacity-50'} onClick={setSort} />
           <span>
             <img
               className={"w-6 h-6 opacity-50"}
@@ -44,7 +48,7 @@ export function TableActions({
         </div>
       </div>
 
-      <div className='flex justify-between mr-[88px] pl-4 mt-4 min-w-[690px]'>
+      <div className="flex justify-between mr-[88px] pl-4 mt-4 min-w-[690px]">
         <div className={"flex gap-6 items-center"}>
           <span className="font-bold">Shop</span>
           <select
@@ -58,6 +62,10 @@ export function TableActions({
               </option>
             ))}
           </select>
+          <div>
+            <span>Average SLA: </span>
+            <span>--%</span>
+          </div>
         </div>
 
         <div>
@@ -83,7 +91,7 @@ export function TableActions({
   );
 }
 
-function findUniqueShopAddresses(data: TShopData): string[] {
+function findUniqueShopAddresses(data: TShopsTable): string[] {
   const setOfAddresses: Set<string> = new Set([
     ...data.map((dataObj) => dataObj.address),
     "Vazha-Pshavela 7",

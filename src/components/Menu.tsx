@@ -1,7 +1,7 @@
-import IconButton from "../UI/IconButton";
-import MarlinLogo from "../UI/MarlinLogo";
+import Icon from "./Icon";
+import MarlinLogo from "./Logo";
 
-export  function Menu(): JSX.Element {
+export function Menu(): JSX.Element {
   return (
     <div
       className={
@@ -14,20 +14,20 @@ export  function Menu(): JSX.Element {
         }
       >
         <MarlinLogo />
-        <IconButton icon="customer" />
-        <IconButton icon="shopping-bag" />
-        <IconButton icon="catalog" />
-        <IconButton icon="team-management" />
-        <IconButton icon="invoice" />
-        <IconButton icon="settings" />
+        <Icon icon="customer" />
+        <Icon icon="shopping-bag" />
+        <Icon icon="catalog" />
+        <Icon icon="team-management" />
+        <Icon icon="invoice" />
+        <Icon icon="settings" />
       </div>
       <div
         className={
           "w-[70px] h-16 mb-8 flex flex-col gap-4 items-center justify-center"
         }
       >
-        <IconButton icon="terms-and-conditions" />
-        <IconButton icon="paper" />
+        <Icon icon="terms-and-conditions" />
+        <Icon icon="paper" />
       </div>
     </div>
   );
