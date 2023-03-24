@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as keyGen } from "uuid";
 import shopsData from "../data/shopsData.json";
 import { TShopsTable } from "../types";
@@ -21,7 +21,14 @@ export const TableActions: any = React.memo(function ta({
   const globalSearchHandler = useAsyncDebounce((value: any) => {
     setGlobalFilter(value || undefined);
   }, 200);
+
   const [activeTypeIsItem, setActiveTypeIsItem] = useState(true);
+  const [userSelection, setUserSelection] = useState("");
+
+  useEffect(() => {
+    userSelection.length > 0 && setGlobalFilter(userSelection);
+  }, [userSelection]);
+
   return (
     <>
       <div className="flex justify-between items-center min-w-[750px] mr-10">
@@ -61,7 +68,9 @@ export const TableActions: any = React.memo(function ta({
               className={"w-40 h-8 rounded-xl shadow-md"}
               name="shop-address"
               id="select-shop"
+              value={userSelection}
               onChange={(e) => {
+                setUserSelection(e.target.value);
                 setGlobalFilter(e.target.value);
               }}
             >
@@ -75,7 +84,7 @@ export const TableActions: any = React.memo(function ta({
             </div>
           </div>
         )}
-        {activeTypeIsItem && <Slider />}
+        {activeTypeIsItem && <Slider onSlideSelect={setUserSelection} />}
 
         <div>
           <div>

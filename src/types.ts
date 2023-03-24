@@ -1,3 +1,4 @@
+import {Dispatch, MouseEventHandler, SetStateAction} from 'react';
 export type TShopsTable = {
     address: string;
     amount: string;
@@ -18,3 +19,12 @@ export type TShopsTable = {
     ordered: string;
     serviceLevel: string;
   }[];
+
+  export type TSliderProps = {
+    onSlideSelect: Dispatch<SetStateAction<string>>;
+  }
+  export type TSlideProps = {
+    children: React.ReactNode;
+    onClick: MouseEventHandler<HTMLDivElement>;
+  }
+  

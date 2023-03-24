@@ -1,24 +1,3 @@
-export type TShopData = {
-  address: string;
-  amount: string;
-  date: string;
-  delivered: string;
-  inTime: string;
-  number: string;
-  ordered: string;
-  serviceLevel: string;
-}[];
-
-export type TItemData = {
-  address: string;
-  item: string;
-  delivered: string;
-  inTime: string;
-  number: string;
-  ordered: string;
-  serviceLevel: string;
-}[];
-
 export const itemTableColumns = [
   { Header: "Number", accessor: "number" },
   { Header: "Item", accessor: "item" },
