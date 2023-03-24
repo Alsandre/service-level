@@ -7,6 +7,7 @@ export function Slider({onSlideSelect}: TSliderProps): JSX.Element {
   const [isNextValid, setIsNextValid] = useState(true);
   const [isPrevValid, setIsPrevValid] = useState(false);
   
+  
   function nextSlideHandler() {
     sliderContent[sliderIndex + 3] && setsliderIndex(sliderIndex + 1);
     !sliderContent[sliderIndex + 4] && setIsNextValid(false);

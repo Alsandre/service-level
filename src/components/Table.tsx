@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { v4 as keyGen } from "uuid";
 import { inTimeCellRender } from "../util/inTimeCellRender";
+import { Modal } from "./Modal";
 
 export function Table({
   getTableProps,
@@ -49,9 +50,7 @@ export function Table({
                   className="first:rounded-l-xl last:rounded-r-xl text-left pl-2"
                 >
                   {isSortEnabled && column.Header !== 'Item' && (
-                    <button onClick={() => column.getSortByToggleProps()}>
-                      <span className="inline-block sort-triangle w-5 h-4 mx-1"></span>
-                    </button>
+                    <Modal toggleSort={column.toggleSortBy}/>
                   )}
                   {column.render("Header")}
 
