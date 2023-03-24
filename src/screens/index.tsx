@@ -51,7 +51,8 @@ export default function Dashboard(): JSX.Element {
   }, [filteredRows]);
   useEffect(() => {
     screen.availWidth < 915 && setIsMobile(true)
-  })
+    screen.width < 915 && setIsMobile(true)
+  }, [])
   return (
     <>{!isMobile && <>
       <Menu />
