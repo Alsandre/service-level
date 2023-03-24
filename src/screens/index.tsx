@@ -46,7 +46,7 @@ export default function Dashboard(): JSX.Element {
   };
   const filteredRows = reactTableProps.rows;
   useEffect(() => {
-    setAverageSLA(calculateAverageSLA(filteredRows).toString());
+    if(filteredRows.length > 0) setAverageSLA(calculateAverageSLA(filteredRows).toString());
   }, [filteredRows]);
   return (
     <>

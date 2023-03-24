@@ -66,7 +66,7 @@ export const TableActions: any = React.memo(function ta({
           <div className={"flex gap-6 items-center"}>
             <span className="font-bold">Shop</span>
             <select
-              className={"w-40 h-8 rounded-xl shadow-md"}
+              className={"w-40 text-sm font-semibold h-8 rounded-xl shadow-md select-triangle px-2"}
               name="shop-address"
               id="select-shop"
               value={userSelection}
@@ -79,9 +79,9 @@ export const TableActions: any = React.memo(function ta({
                 <option key={keyGen()}>{address}</option>
               ))}
             </select>
-            <div>
+            <div className="pl-4 font-bold">
               <span>Average SLA: </span>
-              <span>{averageSLA}</span>
+              <span className="text-cyan text-xl px-1">{averageSLA}%</span>
             </div>
           </div>
         )}

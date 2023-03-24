@@ -1,6 +1,7 @@
 //@ts-nocheck
-import { useEffect, createRef } from "react";
+import { useEffect, useState } from "react";
 import { v4 as keyGen } from "uuid";
+import { inTimeCellRender } from "../util/inTimeCellRender";
 
 export function Table({
   getTableProps,
@@ -18,17 +19,19 @@ export function Table({
   toggleHideColumn,
   reportType,
 }: any): JSX.Element {
-  const tableRef = createRef();
+
+  const [isRowHovered, setIsRowHovered] = useState(false);
+
 
   useEffect(() => {
     toggleHideColumn("productCategory", true);
     toggleHideColumn("address", true);
   }, [reportType, toggleHideColumn]);
 
+
   return (
     <div>
       <table
-        ref={tableRef}
         {...getTableProps()}
         className="w-full min-w-[700px] seperate-border border-spacing-y-[2px]"
       >
@@ -42,22 +45,16 @@ export function Table({
               {headerGroup.headers.map((column: any) => (
                 <th
                   key={keyGen()}
-                  {...column.getHeaderProps(
-                    isSortEnabled ? column.getSortByToggleProps() : undefined
-                  )}
-                  className="first:rounded-l-xl last:rounded-r-xl"
+                  {...column.getHeaderProps()}
+                  className="first:rounded-l-xl last:rounded-r-xl text-left pl-2"
                 >
+                  {isSortEnabled && column.Header !== 'Item' && (
+                    <button onClick={() => column.getSortByToggleProps()}>
+                      <span className="inline-block sort-triangle w-5 h-4 mx-1"></span>
+                    </button>
+                  )}
                   {column.render("Header")}
 
-                  {isSortEnabled && (
-                    <span className="ml-4">
-                      {column.isSorted
-                        ? column.isSortedDesc
-                          ? " 🔽"
-                          : " 🔼"
-                        : "-"}
-                    </span>
-                  )}
                 </th>
               ))}
             </tr>
@@ -70,6 +67,7 @@ export function Table({
               <tr
                 key={keyGen()}
                 {...row.getRowProps()}
+                onMouseOver={() => setIsRowHovered(true)}
                 className="rounded-xl bg-white h-9 shadowy hover:bg-rowSelect hover:text-white"
               >
                 {row.cells.map((cell) => {
@@ -77,9 +75,9 @@ export function Table({
                     <td
                       key={keyGen()}
                       {...cell.getCellProps()}
-                      className="first:rounded-l-xl last:rounded-r-xl border-spacing-y-2 text-inherit"
+                      className="font-bold text-xs first:rounded-l-xl last:rounded-r-xl border-spacing-y-2 text-inherit text-left pl-2"
                     >
-                      {cell.render("Cell")}
+                      {inTimeCellRender(cell.value, isRowHovered) ? inTimeCellRender(cell.value, isRowHovered) : cell.render("Cell") }
                     </td>
                   );
                 })}
