@@ -1,5 +1,5 @@
 //@ts-nocheck
-import { useEffect } from "react";
+import { useEffect, createRef } from "react";
 import { v4 as keyGen } from "uuid";
 
 export function Table({
@@ -18,13 +18,17 @@ export function Table({
   toggleHideColumn,
   reportType,
 }: any): JSX.Element {
+  const tableRef = createRef();
+
   useEffect(() => {
     toggleHideColumn("productCategory", true);
     toggleHideColumn("address", true);
   }, [reportType, toggleHideColumn]);
+
   return (
     <div>
       <table
+        ref={tableRef}
         {...getTableProps()}
         className="w-full min-w-[700px] seperate-border border-spacing-y-[2px]"
       >

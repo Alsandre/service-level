@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { itemTableColumns, shopTableColumns } from "../constants";
 import itemsData from "../data/itemsData.json";
@@ -12,16 +12,26 @@ import {
   useTable,
   useSortBy,
 } from "react-table";
+import { calculateAverageSLA } from "../util/calculateAverageSLA";
 
 export default function Dashboard(): JSX.Element {
   const [reportType, setReportType] = useState("item");
   const [isSortEnabled, setIsSortEnabled] = useState(false);
+  const [averageSLA, setAverageSLA] = useState("");
+
   let columns = reportType === "item" ? itemTableColumns : shopTableColumns;
   let data = reportType === "item" ? itemsData : shopsData;
 
   const reactTableProps = useTable(
-    //@ts-ignore
-    { columns, data, defaultColumn, initialState: {columnVisibility: { productCategory: false }, pageSize: 7 } },
+    {
+      columns,
+      data,
+      defaultColumn,
+      initialState: {
+        //@ts-ignore
+        pageSize: 7,
+      },
+    },
     useFilters,
     useGlobalFilter,
     useSortBy,
@@ -34,6 +44,10 @@ export default function Dashboard(): JSX.Element {
   const toggleSort = (): void => {
     setIsSortEnabled(!isSortEnabled);
   };
+  const filteredRows = reactTableProps.rows;
+  useEffect(() => {
+    setAverageSLA(calculateAverageSLA(filteredRows).toString());
+  }, [filteredRows]);
   return (
     <>
       <Menu />
@@ -48,10 +62,15 @@ export default function Dashboard(): JSX.Element {
           isSortEnabled={isSortEnabled}
           setIsSortEnabled={setIsSortEnabled}
           setSort={toggleSort}
+          averageSLA={averageSLA}
         />
 
         <section className={"pr-[90px]"}>
-          <Table {...reactTableProps} isSortEnabled={isSortEnabled} reportType={reportType}/>
+          <Table
+            {...reactTableProps}
+            isSortEnabled={isSortEnabled}
+            reportType={reportType}
+          />
         </section>
       </main>
     </>

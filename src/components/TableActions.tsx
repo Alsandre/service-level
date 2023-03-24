@@ -16,6 +16,7 @@ export const TableActions: any = React.memo(function ta({
   setGlobalFilter,
   setSort,
   isSortEnabled,
+  averageSLA,
 }: any): JSX.Element {
   const [globalSearchValue, setGlobalSearchValue] = useState(globalFilter);
   const globalSearchHandler = useAsyncDebounce((value: any) => {
@@ -80,7 +81,7 @@ export const TableActions: any = React.memo(function ta({
             </select>
             <div>
               <span>Average SLA: </span>
-              <span>--%</span>
+              <span>{averageSLA}</span>
             </div>
           </div>
         )}
