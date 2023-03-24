@@ -18,6 +18,7 @@ export default function Dashboard(): JSX.Element {
   const [reportType, setReportType] = useState("item");
   const [isSortEnabled, setIsSortEnabled] = useState(false);
   const [averageSLA, setAverageSLA] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
 
   let columns = reportType === "item" ? itemTableColumns : shopTableColumns;
   let data = reportType === "item" ? itemsData : shopsData;
@@ -48,8 +49,11 @@ export default function Dashboard(): JSX.Element {
   useEffect(() => {
     if(filteredRows.length > 0) setAverageSLA(calculateAverageSLA(filteredRows).toString());
   }, [filteredRows]);
+  useEffect(() => {
+    screen.availWidth < 915 && setIsMobile(true)
+  })
   return (
-    <>
+    <>{!isMobile && <>
       <Menu />
       <Header />
       <main className={" w-full h-auto pl-32"}>
@@ -73,6 +77,8 @@ export default function Dashboard(): JSX.Element {
           />
         </section>
       </main>
+    </>}
+    {isMobile && <h1 className='text-text-body font-extrabold text-2xl text-center mt-10 px-10' >Mobile Version of the APP Currently <span className='uppercase text-red-400'>unavailable</span> </h1>}
     </>
   );
 }
